@@ -1,13 +1,13 @@
-import React from 'react'
-import hand_icon from './../../assets/hand_icon.png';
-import arrow_icon from './../../assets/arrow.png';
-import hero_image from './../../assets/hero_image.png';
+import React from "react";
+import hand_icon from "./../../assets/hand_icon.png";
+import arrow_icon from "./../../assets/arrow.png";
+import hero_image from "./../../assets/hero_image.png";
 
 export const Hero = () => {
-  return (
-		<div className="hero py-12 grid grid-cols-12 items-center justify-center" style={{background: 'linear-gradient(180deg, #fde1ff, #e1ffea22 60%)'}}>
+	return (
+		<div className="hero py-12 grid grid-cols-12 items-center justify-center" style={{ background: "linear-gradient(180deg, #fde1ff, #e1ffea22 60%)" }}>
 			<div className="hero-left col-span-8 flex flex-col items-center justify-start">
-				<h2 className='uppercase font-bold'>NEW ARRIVALS ONLY</h2>
+				<h2 className="uppercase font-bold">NEW ARRIVALS ONLY</h2>
 				<div className="font-bold text-7xl my-6">
 					<div className="flex items-center">
 						<p>new</p>
@@ -27,5 +27,5 @@ export const Hero = () => {
 				</div>
 			</div>
 		</div>
-  );
-}
+	);
+};

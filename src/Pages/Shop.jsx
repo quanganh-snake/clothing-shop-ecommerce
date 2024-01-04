@@ -1,9 +1,18 @@
-import React from 'react'
+import React from "react";
+import { Popular } from "../components/Popular/Popular";
+import { Offers } from "../components/Offers/Offers";
+import { NewCollections } from "../components/NewCollections/NewCollections";
+import { NewsLetter } from "../components/NewsLetter/NewsLetter";
 
 const Shop = () => {
-  return (
-    <div>Shop</div>
-  )
-}
+	return (
+		<>
+			<Popular />
+			<Offers />
+			<NewCollections />
+			<NewsLetter />
+		</>
+	);
+};
 
-export default Shop
+export default Shop;
