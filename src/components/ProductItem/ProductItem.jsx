@@ -1,9 +1,10 @@
 import React from "react";
 import imgProduct from "./../../assets/product_1.png";
+import { Link } from "react-router-dom";
 export const ProductItem = (props) => {
-	const { image, name, new_price, old_price } = props;
+	const { id, image, name, new_price, old_price } = props;
 	return (
-		<div className="product__item p-2 border cursor-pointer">
+		<Link to={`/product/${id}`} className="product__item block p-2 border cursor-pointer">
 			<div className="item__thumbnail w-full mb-4 hover:scale-105 hover:transition duration-0 hover:duration-150 hover:ease-in-out">
 				<img src={image} className="w-full" alt="" />
 			</div>
@@ -14,6 +15,6 @@ export const ProductItem = (props) => {
 					<p className="font-semibold text-green-600">${new_price}</p>
 				</div>
 			</div>
-		</div>
+		</Link>
 	);
 };
