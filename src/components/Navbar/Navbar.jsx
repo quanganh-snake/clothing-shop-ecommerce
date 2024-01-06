@@ -1,9 +1,10 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 
 import logo from "./../../assets/logo.png";
 import cart_icon from "./../../assets/cart_icon.png";
 import clsx from "clsx";
 import { Link } from "react-router-dom";
+import { ShopContext } from "../../Context/ShopContext";
 
 const NAV_MENU = [
 	{
@@ -29,9 +30,8 @@ const NAV_MENU = [
 ];
 
 const Navbar = () => {
-
-    const [currentMenu, setCurrentMenu] = useState(0);
-
+	const [currentMenu, setCurrentMenu] = useState(0);
+	const { getTotalCartItems } = useContext(ShopContext);
 	return (
 		<div className="w-full bg-white shadow-md">
 			<div className="navbar max-w-screen-2xl mx-auto flex items-center justify-around">
@@ -63,7 +63,7 @@ const Navbar = () => {
 					</Link>
 					<Link to="/cart" className="block relative cursor-pointer">
 						<img src={cart_icon} alt="" />
-						<span className="absolute w-5 h-5 text-[12px] flex items-center justify-center -top-1 -right-2 bg-red-500 text-white p-2 rounded-full">0</span>
+						<span className="absolute w-5 h-5 text-[12px] flex items-center justify-center -top-1 -right-2 bg-red-500 text-white p-2 rounded-full">{getTotalCartItems()}</span>
 					</Link>
 				</div>
 			</div>

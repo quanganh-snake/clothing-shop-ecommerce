@@ -15,14 +15,14 @@ const ShopCategory = ({ banner, category }) => {
 					<span className="font-medium">Showing 1-12</span> out of 36 products
 				</p>
 				<div className="flex items-center justify-between gap-1 px-3 py-2 border rounded-full">
-					<spam>Sort by</spam>
+					<span>Sort by</span>
 					<div className="w-4 h-4 flex items-center pt-1">
 						<img src={dropdown_icon} width={10} alt="" />
 					</div>
 				</div>
 			</div>
 			<div className="shop-category__products grid grid-cols-12 gap-4">
-				{all_product.map((iProduct, index) => {
+				{all_product.map((iProduct) => {
 					if (category === iProduct.category) {
 						return (
 							<div key={iProduct.id} className="col-span-3">

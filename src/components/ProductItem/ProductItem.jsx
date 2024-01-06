@@ -6,7 +6,7 @@ export const ProductItem = (props) => {
 	return (
 		<Link to={`/product/${id}`} className="product__item block p-2 border cursor-pointer">
 			<div className="item__thumbnail w-full mb-4 hover:scale-105 hover:transition duration-0 hover:duration-150 hover:ease-in-out">
-				<img src={image} className="w-full" alt="" />
+				<img src={image} onClick={window.scrollTo(0, 0)} className="w-full" alt="" />
 			</div>
 			<div className="item__containts">
 				<p className="item__name font-semibold text-[12px]">{name.length > 20 ? name.substring(0, 20) + "..." : name}</p>

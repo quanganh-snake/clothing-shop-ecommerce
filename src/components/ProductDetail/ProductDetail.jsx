@@ -1,24 +1,29 @@
-import React from "react";
+import React, { useContext } from "react";
 import star_icon from "./../../assets/star_icon.png";
 import star_dull_icon from "./../../assets/star_dull_icon.png";
+import { ShopContext } from "../../Context/ShopContext";
+import { Link } from "react-router-dom";
 
 export const ProductDetail = (props) => {
 	const { product } = props;
+	const { addToCart } = useContext(ShopContext);
+
 	return (
-		<div className="product-detail max-w-7xl mx-auto grid grid-cols-12 gap-10 items-start justify-between my-20">
-			<div className="product-detail__left flex gap-4 col-span-4">
-				<div className="product-detail__left--img__list flex flex-col gap-3">
-					<img src={product.image} className="w-20" alt="" />
-					<img src={product.image} className="w-20" alt="" />
-					<img src={product.image} className="w-20" alt="" />
-					<img src={product.image} className="w-20" alt="" />
+		<div className="product-detail max-w-7xl mx-auto grid grid-cols-12 gap-6 items-start justify-between my-20">
+			<div className="product-detail__left grid grid-cols-12 gap-4 col-span-6">
+				<div className="product-detail__left--img__list col-span-2 flex flex-col gap-3">
+					<img src={product?.image} className="h-auto" alt="" />
+					<img src={product?.image} className="h-auto" alt="" />
+					<img src={product?.image} className="h-auto" alt="" />
+					<img src={product?.image} className="h-auto" alt="" />
+					<img src={product?.image} className="h-auto" alt="" />
 				</div>
-				<div className="product-detail__img block h-full">
-					<img src={product.image} className="h-full" alt="image product main" />
+				<div className="product-detail__img block col-span-10 h-full">
+					<img src={product?.image} className="w-full" alt="image product main" />
 				</div>
 			</div>
-			<div className="product-detail__right col-span-8">
-				<h1 className="text-2xl font-semibold mb-4">{product.name}</h1>
+			<div className="product-detail__right col-span-6">
+				<h1 className="text-2xl font-semibold mb-4">{product?.name}</h1>
 				<div className="product-detail__right--star flex items-center gap-1 mb-4">
 					<img src={star_icon} alt="" />
 					<img src={star_icon} alt="" />
@@ -28,8 +33,8 @@ export const ProductDetail = (props) => {
 					<p>(123)</p>
 				</div>
 				<div className="product-detail__right--prices flex items-center gap-6 mb-4">
-					<div className="price--old font-bold text-xl line-through">${product.old_price}</div>
-					<div className="price--new font-bold text-xl text-red-400">${product.new_price}</div>
+					<div className="price--old font-bold text-xl line-through">${product?.old_price}</div>
+					<div className="price--new font-bold text-xl text-red-400">${product?.new_price}</div>
 				</div>
 				<div className="product-detail__right--description mb-6">
 					Lorem ipsum dolor sit, amet consectetur adipisicing elit. Maxime dolores explicabo corporis voluptatem voluptates quod perferendis, numquam quam nisi, ipsam a debitis ut non vero
@@ -48,7 +53,14 @@ export const ProductDetail = (props) => {
 						<div className="py-3 px-4 border font-medium cursor-pointer hover:bg-gray-200">XXL</div>
 					</div>
 				</div>
-				<button className="bg-orange-600 text-white px-4 py-2 rounded-md hover:opacity-70">Add to cart</button>
+				<button
+					onClick={() => {
+						addToCart(product?.id);
+					}}
+					className="bg-orange-600 text-white px-4 py-2 rounded-md hover:opacity-70"
+				>
+					Add to cart
+				</button>
 				<p className="my-6">
 					<span className="font-semibold">Category : </span>
 					<span>Women, T-Shirt, Crop Top</span>
